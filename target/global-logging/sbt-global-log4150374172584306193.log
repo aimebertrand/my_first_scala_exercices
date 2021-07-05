@@ -1,0 +1,13 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(run -p1 F -p2 r -s 8, Some(6e2b21b3-8788-465a-8e60-4887959f6000), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / run[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to /home/aime_bertrand/Documents/my_first_scala_exercices/target/scala-2.13/classes ...[0m
+[0m[[0m[31merror[0m] [0m[0m/home/aime_bertrand/Documents/my_first_scala_exercices/src/main/scala/exercices/exercice_tic_tac_toe/game.scala:29:28: value split is not a member of List[Any][0m
+[0m[[0m[31merror[0m] [0m[0mdid you mean splitAt?[0m
+[0m[[0m[31merror[0m] [0m[0m      case Success(n) => n.split(",")[0m
+[0m[[0m[31merror[0m] [0m[0m                           ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[0mdebug[0m] [0m[0mForcing garbage collection...[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mcompileIncremental[0m) Compilation failed[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 0 s, completed Jun 30, 2021, 3:17:31 PM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m

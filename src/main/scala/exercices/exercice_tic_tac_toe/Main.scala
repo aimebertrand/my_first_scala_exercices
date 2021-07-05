@@ -9,52 +9,48 @@ Usage: run [-p1 CHAR1] [-p2 CHAR2] [-s GRID_SIZE]
   -s GRID_SIZE: defines the size of the grid (default: 3).
       """
 
-  def isAllDigits(x: String) = x forall Character.isDigit
+  def isAllDigits(x: String): Boolean = x forall Character.isDigit
 
+  def run_my_game(name : String, board : Board, input : Input, c : Char) : Boolean = {
+    var tab2 = Array[String]("", "")
 
-  def checkargs(p1 : String, p2 : String, size : String): Boolean = {
-  if (!isAllDigits(size)) false
-    true
+    tab2 = input.get_input(board, name)
+    board.update(tab2, Some(c), None)
+    board.print()
+    board.did_won(tab2(0).toInt, tab2(1).toInt)
   }
 
-  def run_without_args(): Int = {
+  def run_without_args(): String = {
     val board = new Board()
-    val game = new Game()
-    var run = 0
-    var tab2 = Array[String]("", "")
+    val input = new Input()
 
     board.fill_map()
     board.print()
-    while (run == 0) {
-      tab2 = game.get_input(board, "p1")
-      board.update(tab2, Some('X'), None)
-      board.print()
-      tab2 = game.get_input(board, "p2")
-      board.update(tab2, Some('O'), None)
-      board.print()
+    // Boucle de type C que j'aimerais plutot faire avec une expression
+    while (true) {
+      if (!run_my_game("p1", board, input, 'X'))
+        return "Player 1 won !"
+       if (!run_my_game("p2", board, input, 'O'))
+         return "Player 2 won !"
     }
-    return (run)
+    "seriously, how did I get here?"
   }
 
-  def run_with_args(tab : Array[String]) : Int = {
+  def run_with_args(tab : Array[String]) : String = {
     val board = new Board(tab(1).head , tab(3).head, tab(5).toInt)
-    val game = new Game()
-    var run = 0
-    var tab2 = Array[String]("", "")
+    val input = new Input()
 
     board.fill_map()
     board.print()
-    while (run == 0) {
-      tab2 = game.get_input(board, "p1")
-      board.update(tab2, Some('X'), None)
-      board.print()
-      tab2 = game.get_input(board, "p2")
-      board.update(tab2, Some('O'), None)
-      board.print()
+    // Boucle de type C que j'aimerais plutot faire avec une expression
+    while (true) {
+      if (!run_my_game("p1", board, input, board._p1))
+        return "Player 1 won !"
+      if (!run_my_game("p2", board, input, board._p2))
+        return "Player 2 won !"
     }
-    return (run)
+    "seriously, how did I get here?"
   }
-
 
   def main(args: Array[String]): Unit = {
 
@@ -65,15 +61,16 @@ Usage: run [-p1 CHAR1] [-p2 CHAR2] [-s GRID_SIZE]
       args(5)
     }
     turn match {
-      case Failure(e) => {
-        return run_without_args()
-      }
+      case Failure(_) =>
+        println (s"${run_without_args()}")
+        sys.exit(0)
       case Success(n) => if(!isAllDigits(n) || n.toInt <= 2 ||
-        args.length > 6 || args(1).size > 1 || args(3).size > 1){
+        args.length > 6 || args(1).length > 1 || args(3).length > 1){
         System.err.println(usage)
-        return 84
+        sys.exit(84)
     }
       }
-    return run_with_args(args)
+    println (s"${run_with_args(args)}")
+    sys.exit(0)
   }
 }

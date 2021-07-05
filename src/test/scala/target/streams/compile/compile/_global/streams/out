@@ -1,0 +1,19 @@
+[0m[[0m[31merror[0m] [0m[0m/home/aime_bertrand/Documents/my_first_scala_exercices/src/test/scala/test_tic_tac_toe.scala:1:8: not found: object exercices[0m
+[0m[[0m[31merror[0m] [0m[0mimport exercices.exercice_tic_tac_toe.{Board, Input, Main}[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/aime_bertrand/Documents/my_first_scala_exercices/src/test/scala/test_tic_tac_toe.scala:2:12: object scalatest is not a member of package org[0m
+[0m[[0m[31merror[0m] [0m[0mimport org.scalatest.{FlatSpec, Matchers}[0m
+[0m[[0m[31merror[0m] [0m[0m           ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/aime_bertrand/Documents/my_first_scala_exercices/src/test/scala/test_tic_tac_toe.scala:4:32: not found: type FlatSpec[0m
+[0m[[0m[31merror[0m] [0m[0mclass test_tic_tac_toe extends FlatSpec with Matchers {[0m
+[0m[[0m[31merror[0m] [0m[0m                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/aime_bertrand/Documents/my_first_scala_exercices/src/test/scala/test_tic_tac_toe.scala:4:46: not found: type Matchers[0m
+[0m[[0m[31merror[0m] [0m[0mclass test_tic_tac_toe extends FlatSpec with Matchers {[0m
+[0m[[0m[31merror[0m] [0m[0m                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/aime_bertrand/Documents/my_first_scala_exercices/src/test/scala/test_tic_tac_toe.scala:5:18: value should is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m  "A GameStatus" should "win by row" in {[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/aime_bertrand/Documents/my_first_scala_exercices/src/test/scala/test_tic_tac_toe.scala:8:5: not found: value Main[0m
+[0m[[0m[31merror[0m] [0m[0m    Main.main((input)) shouldBe 84[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m6 errors found[0m

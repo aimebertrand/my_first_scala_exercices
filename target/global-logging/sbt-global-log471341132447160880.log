@@ -1,0 +1,11 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(run -p1 F -p2 r -s 3, Some(7531e4cf-d458-4d88-a62b-49eea89b5d3d), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / run[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 2 Scala sources to /home/aime_bertrand/Documents/my_first_scala_exercices/target/scala-2.13/classes ...[0m
+[0m[[0m[31merror[0m] [0m[0m/home/aime_bertrand/Documents/my_first_scala_exercices/src/main/scala/exercices/exercice_tic_tac_toe/board.scala:23:4: ';' expected but 'val' found.[0m
+[0m[[0m[31merror[0m] [0m[0m  }val board = new Board()[0m
+[0m[[0m[31merror[0m] [0m[0m   ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mcompileIncremental[0m) Compilation failed[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 2 s, completed Jun 30, 2021, 2:29:14 PM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m

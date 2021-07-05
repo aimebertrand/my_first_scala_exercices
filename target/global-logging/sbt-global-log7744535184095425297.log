@@ -1,0 +1,22 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(run -p1 F -p2 r -s 3, Some(b8cf7773-7cc2-43f9-9fa3-77942e6c24a1), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / run[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 2 Scala sources to /home/aime_bertrand/Documents/my_first_scala_exercices/target/scala-2.13/classes ...[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/aime_bertrand/Documents/my_first_scala_exercices/src/main/scala/exercices/exercice_tic_tac_toe/Main.scala:64:9: enclosing method main has result type Unit: return value of type Int discarded[0m
+[0m[[0m[33mwarn[0m] [0m[0m        return run_without_args()[0m
+[0m[[0m[33mwarn[0m] [0m[0m        ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/aime_bertrand/Documents/my_first_scala_exercices/src/main/scala/exercices/exercice_tic_tac_toe/Main.scala:69:9: enclosing method main has result type Unit: return value of type Int(84) discarded[0m
+[0m[[0m[33mwarn[0m] [0m[0m        return 84[0m
+[0m[[0m[33mwarn[0m] [0m[0m        ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/aime_bertrand/Documents/my_first_scala_exercices/src/main/scala/exercices/exercice_tic_tac_toe/Main.scala:72:5: enclosing method main has result type Unit: return value of type Int discarded[0m
+[0m[[0m[33mwarn[0m] [0m[0m    return run_with_args(args)[0m
+[0m[[0m[33mwarn[0m] [0m[0m    ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/aime_bertrand/Documents/my_first_scala_exercices/src/main/scala/exercices/exercice_tic_tac_toe/Main.scala:69:16: a pure expression does nothing in statement position[0m
+[0m[[0m[33mwarn[0m] [0m[0m        return 84[0m
+[0m[[0m[33mwarn[0m] [0m[0m               ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mfour warnings found[0m
+[0m[[0m[33mwarn[0m] [0m[0mCanceling execution...[0m
+[0m[[0m[31merror[0m] [0m[0mCancelled: run -p1 F -p2 r -s 3[0m
+[0m[[0m[31merror[0m] [0m[0mCancelled: run -p1 F -p2 r -s 3[0m
+[0m[[0m[31merror[0m] [0m[0mUse 'last' for the full log.[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m

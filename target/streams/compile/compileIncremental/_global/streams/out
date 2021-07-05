@@ -1,0 +1,48 @@
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] IncrementalCompile -----------[0m
+[0m[[0m[0mdebug[0m] [0m[0mIncrementalCompile.incrementalCompile[0m
+[0m[[0m[0mdebug[0m] [0m[0mprevious = Stamps for: 29 products, 14 sources, 1 libraries[0m
+[0m[[0m[0mdebug[0m] [0m[0mcurrent source = Set(${BASE}/src/main/scala/exercices/exercice_classe/ClassExerciceCorrection.scala, ${BASE}/src/main/scala/exercices/exercice_carrying_digits/CarryingDigits.scala, ${BASE}/src/main/scala/exercices/exercice_nombres_premiers/NombresPremiersCorrection.scala, ${BASE}/src/main/scala/exercices/exercice_video_length/VideoLength.scala, ${BASE}/src/main/scala/exercices/exercice_building_word/BuildingWordCorrection.scala, ${BASE}/src/main/scala/exercices/exercice_classe/ClassExercice.scala, ${BASE}/src/main/scala/exercices/exercice_tic_tac_toe/Input.scala, ${BASE}/src/main/scala/exercices/exercice_Euler/project_euler.scala, ${BASE}/src/main/scala/exercices/exercice_carrying_digits/CarryingDigitsCorrection.scala, ${BASE}/src/main/scala/exercices/exercice_nombres_premiers/NombresPremiers.scala, ${BASE}/src/main/scala/exercices/exercice_tic_tac_toe/Board.scala, ${BASE}/src/main/scala/exercices/exercice_building_word/BuildingWord.scala, ${BASE}/src/main/scala/exercices/exercice_tic_tac_toe/Main.scala, ${BASE}/src/main/scala/exercices/exercice_video_length/VideoLengthCorrection.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> initialChanges = InitialChanges(Changes(added = Set(), removed = Set(), changed = Set(${BASE}/src/main/scala/exercices/exercice_tic_tac_toe/Main.scala, ${BASE}/src/main/scala/exercices/exercice_tic_tac_toe/Board.scala, ${BASE}/src/main/scala/exercices/exercice_tic_tac_toe/Input.scala), unmodified = ...),Set(${BASE}/target/scala-2.13/classes/exercices/exercice_tic_tac_toe/Input.class, ${BASE}/target/scala-2.13/classes/exercices/exercice_tic_tac_toe/Main$.class, ${BASE}/target/scala-2.13/classes/exercices/exercice_tic_tac_toe/Board.class),Set(),API Changes: Set())[0m
+[0m[[0m[0mdebug[0m] [0m[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial source changes:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	removed: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m	added: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m	modified: Set(${BASE}/src/main/scala/exercices/exercice_tic_tac_toe/Main.scala, ${BASE}/src/main/scala/exercices/exercice_tic_tac_toe/Board.scala, ${BASE}/src/main/scala/exercices/exercice_tic_tac_toe/Input.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0mInvalidated products: Set(${BASE}/target/scala-2.13/classes/exercices/exercice_tic_tac_toe/Input.class, ${BASE}/target/scala-2.13/classes/exercices/exercice_tic_tac_toe/Main$.class, ${BASE}/target/scala-2.13/classes/exercices/exercice_tic_tac_toe/Board.class)[0m
+[0m[[0m[0mdebug[0m] [0m[0mExternal API changes: API Changes: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mModified binary dependencies: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial directly invalidated classes: Set(exercices.exercice_tic_tac_toe.Main, exercices.exercice_tic_tac_toe.Board, exercices.exercice_tic_tac_toe.Input)[0m
+[0m[[0m[0mdebug[0m] [0m[0mSources indirectly invalidated by:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	product: Set(${BASE}/src/main/scala/exercices/exercice_tic_tac_toe/Input.scala, ${BASE}/src/main/scala/exercices/exercice_tic_tac_toe/Main.scala, ${BASE}/src/main/scala/exercices/exercice_tic_tac_toe/Board.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	binary dep: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m	external source: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated classes: Set(exercices.exercice_tic_tac_toe.Main, exercices.exercice_tic_tac_toe.Board, exercices.exercice_tic_tac_toe.Input)[0m
+[0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated sources:Set(${BASE}/src/main/scala/exercices/exercice_tic_tac_toe/Main.scala, ${BASE}/src/main/scala/exercices/exercice_tic_tac_toe/Board.scala, ${BASE}/src/main/scala/exercices/exercice_tic_tac_toe/Input.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: exercices.exercice_tic_tac_toe.Main, exercices.exercice_tic_tac_toe.Board, exercices.exercice_tic_tac_toe.Input[0m
+[0m[[0m[0mdebug[0m] [0m[0mcompilation cycle 1[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 3 Scala sources to /home/aime_bertrand/Documents/my_first_scala_exercices/target/scala-2.13/classes ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mGetting org.scala-sbt:compiler-bridge_2.13:1.5.5:compile for Scala 2.13.6[0m
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] Running cached compiler 7b36444d for Scala compiler version 2.13.6[0m
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] The Scala compiler is invoked with:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-bootclasspath[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/home/aime_bertrand/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.6/scala-library-2.13.6.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-classpath[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/home/aime_bertrand/Documents/my_first_scala_exercices/target/scala-2.13/classes[0m
+[0m[[0m[0mdebug[0m] [0m[0mInvalidating (transitively) by inheritance from exercices.exercice_tic_tac_toe.Input...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: exercices.exercice_tic_tac_toe.Input[0m
+[0m[[0m[0mdebug[0m] [0m[0mInvalidated by transitive inheritance dependency: Set(exercices.exercice_tic_tac_toe.Input)[0m
+[0m[[0m[0mdebug[0m] [0m[0mNone of the modified names appears in source file of exercices.exercice_tic_tac_toe.Main. This dependency is not being considered for invalidation.[0m
+[0m[[0m[0mdebug[0m] [0m[0mChange NamesChange(exercices.exercice_tic_tac_toe.Input,ModifiedNames(changes = UsedName(check_range,[Default]), UsedName(finalize,[Default]), UsedName(check_format,[Default]))) invalidates 1 classes due to The exercices.exercice_tic_tac_toe.Input has the following regular definitions changed:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	UsedName(check_range,[Default]), UsedName(finalize,[Default]), UsedName(check_format,[Default]).[0m
+[0m[[0m[0mdebug[0m] [0m[0m  > by transitive inheritance: Set(exercices.exercice_tic_tac_toe.Input)[0m
+[0m[[0m[0mdebug[0m] [0m[0m  > [0m
+[0m[[0m[0mdebug[0m] [0m[0m  > [0m
+[0m[[0m[0mdebug[0m] [0m[0m        [0m
+[0m[[0m[0mdebug[0m] [0m[0mNew invalidations:[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: [0m
+[0m[[0m[0mdebug[0m] [0m[0mPreviously invalidated, but (transitively) depend on new invalidations:[0m
+[0m[[0m[0mdebug[0m] [0m[0mFinal step, transitive dependencies:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mNo classes were invalidated.[0m
+[0m[[0m[0mdebug[0m] [0m[0mScala compilation took 3.540531777 s[0m
+[0m[[0m[0minfo[0m] [0m[0mdone compiling[0m

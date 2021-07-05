@@ -1,0 +1,12 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(run 1, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / run[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 2 Scala sources to /home/aime_bertrand/Documents/my_first_scala_exercices/target/scala-2.13/classes ...[0m
+[0m[[0m[31merror[0m] [0m[0m/home/aime_bertrand/Documents/my_first_scala_exercices/src/main/scala/exercices/exercice_tic_tac_toe/Main.scala:23:37: value - is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m      val board = new Board(args(0) - 48)[0m
+[0m[[0m[31merror[0m] [0m[0m                                    ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[0mdebug[0m] [0m[0mForcing garbage collection...[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mcompileIncremental[0m) Compilation failed[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 0 s, completed Jun 30, 2021, 10:34:26 AM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(idea-shell, None, None)[0m
