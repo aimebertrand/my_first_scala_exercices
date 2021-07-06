@@ -20,6 +20,21 @@ Usage: run [-p1 CHAR1] [-p2 CHAR2] [-s GRID_SIZE]
     board.did_won(tab2(0).toInt, tab2(1).toInt)
   }
 
+  def SieveOfEratosthenes {
+
+    val LIMIT = 10001
+
+    def main(args: Array[String]) {
+      val prime = Array.fill(LIMIT)(true)
+      prime(0) = false
+      prime(1) = false
+
+      Stream.from(2).takeWhile(i => i*i < LIMIT).filter(prime(_)).foreach { i =>
+        (i*i until LIMIT by i).foreach(prime(_) = false)
+      }
+    }
+  }
+
   def run_without_args(): String = {
     val board = new Board()
     val input = new Input()
@@ -28,9 +43,9 @@ Usage: run [-p1 CHAR1] [-p2 CHAR2] [-s GRID_SIZE]
     board.print()
     // Boucle de type C que j'aimerais plutot faire avec une expression
     while (true) {
-      if (!run_my_game("p1", board, input, 'X'))
+      if (run_my_game("p1", board, input, 'X'))
         return "Player 1 won !"
-       if (!run_my_game("p2", board, input, 'O'))
+       if (run_my_game("p2", board, input, 'O'))
          return "Player 2 won !"
     }
     "seriously, how did I get here?"

@@ -41,8 +41,16 @@ class Board(p1: Char, p2: Char, size: Int) {
   }
 
   def did_won(x: Int, y: Int): Boolean = {
+
+    if (dig_left_move() == IndexedSeq(_p1, _p1, _p1) || dig_left_move() == IndexedSeq(_p2, _p2, _p2))  {true}
+    else if (dig_right_move() == IndexedSeq(_p1, _p1, _p1) || dig_right_move() == IndexedSeq(_p2, _p2, _p2))  {true}
+    else if (vert_move(y) == IndexedSeq(_p1, _p1, _p1) || vert_move(y) == IndexedSeq(_p2, _p2, _p2))  {true}
+    else if (horizon_move(y) == IndexedSeq(_p1, _p1, _p1) || horizon_move(y) == IndexedSeq(_p2, _p2, _p2))  {true}
+    else
+      false
+
     // Une mauvaise utilisation du Try - match ??
-      val res = Try {
+     /* val res = Try {
         dig_left_move()
         dig_right_move()
         vert_move(y)
@@ -50,10 +58,11 @@ class Board(p1: Char, p2: Char, size: Int) {
       }
       res match {
         case Success(value) =>
+          println("value == ", value)
           if ((value == IndexedSeq(_p1, _p1, _p1)) || value == IndexedSeq(_p2, _p2, _p2)) false
       else true
         case Failure(_) => false
-      }
+      }*/
     }
 
   private def vert_move(y: Int, x: Int = 1): IndexedSeq[Char] = {
