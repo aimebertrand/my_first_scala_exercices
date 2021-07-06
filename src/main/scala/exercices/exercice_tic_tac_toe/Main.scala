@@ -21,10 +21,8 @@ Usage: run [-p1 CHAR1] [-p2 CHAR2] [-s GRID_SIZE]
   }
 
   def check_draw(map : Array[Array[Char]]): Boolean = {
-    for (i <- map.indices) {
-      for (j <- map(0).indices) {
-        if (map(i)(j) == ' ') {return true}
-      }
+    for (i <- map.indices; j <- map(0).indices) {
+      if (map(i)(j) == ' ') {return true}
     }
     false
   }
@@ -39,6 +37,7 @@ Usage: run [-p1 CHAR1] [-p2 CHAR2] [-s GRID_SIZE]
     while (true) {
       if (!check_draw(board._map)) {return "It is a draw !"}
       if (run_my_game("p1", board, input, 'X')) {return "Player 1 won !"}
+      if (!check_draw(board._map)) {return "It is a draw !"}
       if (run_my_game("p2", board, input, 'O')) {return "Player 2 won !"}
     }
     "seriously, how did I get here?"

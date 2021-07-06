@@ -40,6 +40,7 @@ class Board(p1: Char, p2: Char, size: Int) {
     }
   }
 
+
   def did_won(x: Int, y: Int): Boolean = {
 
     if (dig_left_move() == IndexedSeq(_p1, _p1, _p1) || dig_left_move() == IndexedSeq(_p2, _p2, _p2))  {true}
