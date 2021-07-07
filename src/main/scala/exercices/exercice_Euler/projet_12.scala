@@ -2,7 +2,7 @@ package exercices.exercice_Euler
 
 import scala.math.sqrt
 
-object project_12 {
+object projet_12 {
   def main(args: Array[String]): Unit = {
     //println(s"The sequence of triangle numbers :${triangle(500)}")
     val t1 = System.nanoTime
