@@ -18,7 +18,7 @@ object projet_12 {
     res
   }
   def is_perfect_square(n : Int): Boolean = {
-    val x = Math.sqrt(n);
+    val x = Math.sqrt(n)
     if (Math.pow(x,2) == n) {return true}
     false
   }
@@ -28,7 +28,7 @@ object projet_12 {
 
     while (true) {
       var count = 0
-      var triangle = get_triangle_number(j)
+      val triangle = get_triangle_number(j)
       var i = 1
       while (i < sqrt(triangle)) {
         if (triangle % i == 0) {
