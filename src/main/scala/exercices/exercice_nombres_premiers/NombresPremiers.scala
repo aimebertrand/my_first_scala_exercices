@@ -20,15 +20,12 @@ object NombresPremiers {
   def isPrime(n: Int): Boolean = {
     var i = 3
 
-    if (n < 2)
-      return false
-    if (n == 2)
-      return true
-    if (n % 2 == 0)
-      return false
+    if (n < 2) { return false }
+    if (n == 2) { return true }
+    if (n % 2 == 0) { return false }
+
     while (i * i <= n) {
-      if (n % i == 0)
-        return false
+      if (n % i == 0) { return false }
       i += 2
     }
     true
