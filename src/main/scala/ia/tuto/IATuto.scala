@@ -1,6 +1,11 @@
 package ia.tuto
 
 
+import smile._
+import scala.collection.mutable.ArrayBuffer
+import scala.util.control.Breaks.{break, breakable}
+
+
 
 /*
 
@@ -61,7 +66,8 @@ case class DataLine(
   // On parse les données et on les mets dans une array
   //  5.1,3.5,1.4,0.2
   lazy val features : Array[Double] = {
-    ???
+    raw_data.split(",").init.map(x => x.toDouble)
+   //test
   }
 }
 object IATuto {
@@ -70,13 +76,10 @@ object IATuto {
 
   def main(args: Array[String]): Unit = {
 
-
     val parsed_data = {
       splitIrisData()
-        .map{l=> DataLine(l) }
+        .map { l => DataLine(l) }
     }
-
-
     val random_parsed_data = {
       scala.util.Random.shuffle(parsed_data.toSeq).toArray
     }
@@ -85,18 +88,17 @@ object IATuto {
       random_parsed_data
         .slice(
           0,
-          random_parsed_data.length-10
+          random_parsed_data.length - 10
         )
     }
 
     val test_data = {
       random_parsed_data
         .slice(
-          random_parsed_data.length-10,
+          random_parsed_data.length - 10,
           random_parsed_data.length
         )
     }
-
 
 
     val cart_model = {
@@ -111,18 +113,18 @@ object IATuto {
       )
     }
 
-
     val threshold = 0.5
 
     var tp = 0
     var fn = 0
     var fp = 0
     var tn = 0
-    test_data.foreach{data=>
+
+    test_data.foreach { data =>
 
       val confidences = Array.ofDim[Double](2)
 
-      cart_model.predict(data.features,confidences)
+      cart_model.predict(data.features, confidences)
 
       val annotated_class = data.label
 
@@ -132,7 +134,7 @@ object IATuto {
       }
 
       val predicted_class = {
-        if(class_confidence>threshold) {
+        if (class_confidence > threshold) {
           1
         } else {
           0
@@ -168,26 +170,41 @@ object IATuto {
     // https://en.wikipedia.org/wiki/Precision_and_recall
 
     val precision = {
-      ???
+      tp / (tp + fp).toDouble
     }
     val rappel = {
-      ???
+      tp / (tp + fn).toDouble
     }
 
     println(s"Precision: ${precision};   Rappel: ${rappel}")
 
-
+    /*val tree = cart_model.dot()/*it return graphic representation in Graphviz dot format */
+    println(tree)// here we are printing the decision tree
+    println("\n\ncopy and paste the above on this link to print tree >>>>> http://viz-js.com/\n\n")
+    val iris = read.arff("iris.arff")
+    val canvas = plot(iris, "sepallength", "sepalwidth", "class", '*')
+    canvas.setAxisLabels("sepallength", "sepalwidth")
+    show(canvas)
+*/
 
   }
-
-
-
-
 
   def splitIrisData() : Array[String] = {
-    ???
+    val str = IrisData.txt_data
+    val tab = str.split('\n')
+    var i = 1
+    val _map = new ArrayBuffer[String]()
+
+    while (i < tab.length) {
+      breakable {
+        if (tab(i) == "")
+          break
+        else if (tab(i)(0) >= 48 && tab(i)(0) <= 57) {
+          _map+= tab(i)
+        }
+      }
+      i += 1
+    }
+    _map.toArray
   }
-
-
-
 }
