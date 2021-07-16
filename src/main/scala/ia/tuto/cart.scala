@@ -1,11 +1,7 @@
 package ia.tuto
 
-
-import smile._
 import scala.collection.mutable.ArrayBuffer
 import scala.util.control.Breaks.{break, breakable}
-
-
 
 /*
 
@@ -57,12 +53,27 @@ case class DataLine(
   // On choisit un type qui est associé à la valeur 1 et les autres à 0
   lazy val label : Int = {
     raw_data.split(",").last match {
-      case "window" => 1
+      case "yes" => 1
       case _ => 0
     }
   }
 
 
+  lazy val transform : Array[Double] = {
+
+    raw_data.split(",").init.map {
+      case "sunny" =>  1.0d
+      case "hot" =>  10.0d
+      case "high" =>  100.0d
+      case "TRUE" =>  1000.0d
+      case "overcast" => 2.0d
+      case "cool" =>  20.0d
+      case "normal" =>  200.0d
+      case "FALSE" => 2000.0d
+      case "rainy" =>  3.0d
+      case _ =>  -84d
+    }
+  }
   // On parse les données et on les mets dans une array
   //  5.1,3.5,1.4,0.2
   lazy val features : Array[Double] = {
@@ -70,7 +81,7 @@ case class DataLine(
    //test
   }
 }
-object IATuto2 {
+object cart {
 
 
 
@@ -100,88 +111,71 @@ object IATuto2 {
         )
     }
 
-
     val cart_model = {
 
-      val x = train_data.map(_.features)
+      val x = train_data.map(_.transform)
       val y = train_data.map(_.label)
 
       smile.classification.cart(
         x,
         y,
-        100
+        100,
+        null
       )
     }
 
-    val threshold = 0.5
+    var threshold = 0.00
 
-    var tp = 0
-    var fn = 0
-    var fp = 0
-    var tn = 0
+    while (threshold < 1) {
+      var tp = 0
+      var fn = 0
+      var fp = 0
+      var tn = 0
+      test_data.foreach { data =>
 
-    test_data.foreach { data =>
+        val confidences = Array.ofDim[Double](2)
 
-      val confidences = Array.ofDim[Double](2)
+        cart_model.predict(data.transform, confidences)
 
-      cart_model.predict(data.features, confidences)
-
-      val annotated_class = data.label
+        val annotated_class = data.label
 
 
-      val class_confidence = {
-        confidences.last
-      }
+        val class_confidence = {
+          confidences.last
+        }
 
-      val predicted_class = {
-        if (class_confidence > threshold) {
-          1
-        } else {
-          0
+        val predicted_class = {
+          if (class_confidence > threshold) {
+            1
+          } else {
+            0
+          }
+        }
+
+        println(s"Data: $data; confidence: $class_confidence; Annotated: $annotated_class; Predicted: $predicted_class")
+
+
+        (annotated_class, predicted_class) match {
+          case (0, 0) => tn += 1;"TN"
+          case (1, 0) => fn += 1;"FN"
+          case (0, 1) => fp += 1;"FP"
+          case (1, 1) => tp += 1;"TP"
         }
       }
+      // https://en.wikipedia.org/wiki/Precision_and_recall
+      val precision = tp / (tp + fp).toDouble
+      val rappel = tp / (tp + fn).toDouble
+      val F_score = 2 * (precision * rappel) / ( precision + rappel)
 
-      println(s"Data: ${data}; confidence: ${class_confidence}; Annotated: ${annotated_class}; Predicted: ${predicted_class}")
-
-
-      (annotated_class, predicted_class) match {
-        case (0,0) => {
-          tn+=1
-          "TN"
-        }
-        case (1,0) => {
-          fn+=1
-          "FN"
-        }
-        case (0,1) => {
-          fp+=1
-          "FP"
-        }
-        case (1,1) => {
-          tp+=1
-          "TP"
-        }
-      }
-
+      println(s"tp: $tp, tn: $tn, fn: $fn, fp: $fp")
+      println(s"Precision: ${precision * 100 + "%"};   Rappel: ${rappel * 100 + "%"}")
+      println(s"Fscore == ${F_score * 100 + "%"}")
+      println(s"threshold == $threshold")
+      threshold += 0.05
     }
-
-
-
-    // https://en.wikipedia.org/wiki/Precision_and_recall
-
-    val precision = {
-      tp / (tp + fp).toDouble
-    }
-    val rappel = {
-      tp / (tp + fn).toDouble
-    }
-
-    println(s"tp: ${tp}, tn: ${tn}, fn: ${fn}, fp: ${fp}")
-    println(s"Precision: ${precision * 100 + "%"};   Rappel: ${rappel * 100 + "%"}")
-    println(s"Precision: ${precision};   Rappel: ${rappel}")
     /*val tree = cart_model.dot()/*it return graphic representation in Graphviz dot format */
     println(tree)// here we are printing the decision tree
-    println("\n\ncopy and paste the above on this link to print tree >>>>> http://viz-js.com/\n\n")
+    println("\n\ncopy and pas te the above on this link to print tree >>>>> http://viz-js.com/\n\n")
     val iris = read.arff("iris.arff")
     val canvas = plot(iris, "sepallength", "sepalwidth", "class", '*')
     canvas.setAxisLabels("sepallength", "sepalwidth")
@@ -190,42 +184,23 @@ object IATuto2 {
 
   }
 
-  def splitIrisData() : Array[String] = {
+  def splitIrisData(): Array[String] = {
 
-    val bufferedSource = io.Source.fromFile("/home/aime_bertrand/Documents/my_first_scala_exercices/src/main/scala/ia/tuto/segment_data")
+    val bufferedSource = io.Source.fromFile("/home/aime_bertrand/Documents/my_first_scala_exercices/src/main/scala/ia/tuto/test_weather.nominal.arff")
     val tab = (for (line <- bufferedSource.getLines()) yield line).toArray
     val _map = new ArrayBuffer[String]()
     var i = 1
 
-
     while (i < tab.length) {
       breakable {
         if (tab(i) == "")
           break
-        else if (tab(i)(0) >= 48 && tab(i)(0) <= 57) {
-          _map+= tab(i)
+        else if (tab(i)(0) != 64) {
+          _map += tab(i)
         }
       }
       i += 1
     }
     _map.toArray
-
-    /*val str = IrisData.txt_data
-    val tab = str.split('\n')
-    var i = 1
-
-
-    while (i < tab.length) {
-      breakable {
-        if (tab(i) == "")
-          break
-        else if (tab(i)(0) >= 48 && tab(i)(0) <= 57) {
-          _map+= tab(i)
-        }
-      }
-      i += 1
-    }
-    _map.toArray
-  */
   }
 }
