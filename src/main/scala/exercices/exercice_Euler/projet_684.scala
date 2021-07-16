@@ -1,5 +1,8 @@
 package exercices.exercice_Euler
 
+import scala.annotation.tailrec
+
+//non fini
 object projet_684 {
   def main(args: Array[String]): Unit = {
     println(s"inverse_digit_sum : ${inverse_digit_sum(0)}")
@@ -8,21 +11,19 @@ object projet_684 {
   def get_value(i: Long): Long = {
     var j = i
     val n = j / 9
-    //println(s"n : $n")
     val rest = j % 9
-    //println(s"rest : $rest")
     val scale = Math.pow(10, n).toInt
-    //println(s"scale : $scale")
     val res = rest * scale + (scale - 1)
     //println(s"res : $result")
     res
   }
   def fib( n : Long) : Long = {
-    def fib_tail( n: Long, a :Long, b :Long): Long = n match {
+    @tailrec
+    def fib_tail(n: Long, a :Long, b :Long): Long = n match {
       case 0 => a
       case _ => fib_tail(n - 1, b, a + b)
     }
-    return fib_tail(n, 0, 1)
+    fib_tail(n, 0, 1)
   }
   def inverse_digit_sum(k : Long) : Long = {
     var j : Long = 0

@@ -2,7 +2,10 @@ package exercices.exercice_Euler
 
 object projet_10 {
   def main(args: Array[String]): Unit = {
+    val t1 = System.nanoTime
     println(s"The sum of all the primes below two million :${premiers(2000000L)}")
+    val duration = (System.nanoTime - t1) / 1e9d
+    println(s"\ntime elapsed : $duration")
   }
 
   def isPrime(n: Long): Boolean = {

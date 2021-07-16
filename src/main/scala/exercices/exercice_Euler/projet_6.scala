@@ -1,7 +1,5 @@
 package exercices.exercice_Euler
 
-import exercices.exercice_Euler.projet_5.smallest_multiple2
-
 object projet_6 {
   def main(args: Array[String]): Unit = {
     println(s"Sum square difference : ${sum_square_difference()}")
