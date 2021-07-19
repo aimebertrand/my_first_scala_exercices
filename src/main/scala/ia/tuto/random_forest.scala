@@ -3,6 +3,12 @@ package ia.tuto
 import smile.classification.randomForest
 import scala.collection.mutable.ArrayBuffer
 import scala.util.control.Breaks.{break, breakable}
+import smile._
+import smile.classification._
+import smile.data.AttributeDataset
+import smile.validation._
+import smile.{data, read}
+
 
 case class MyData(raw_data:String) {
 
@@ -47,6 +53,10 @@ case class MyData(raw_data:String) {
       val maxNodes = 4
       val tab = train_data.map(_.transform)
       val res = train_data.map(_.label)
+      println(res.size)
+      println(tab.size)
+      println(tab.deep.mkString("\n"))
+      println(res.mkString("\n"))
       val rf_model = randomForest(tab, res, null, nTrees, maxNodes)
       println(s"OOB error = ${rf_model.error()}")
       var threshold = 0.00

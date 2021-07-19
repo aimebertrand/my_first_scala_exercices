@@ -67,14 +67,17 @@ object multi_class {
     }
     val precision = tp / (tp + fp).toDouble
     val rappel = tp / (tp + fn).toDouble
+    val F_score = 2 * (precision * rappel) / ( precision + rappel)
+
     println(s"tp: $tp, tn: $tn, fn: $fn, fp: $fp")
     println(s"Precision: ${precision * 100 + "%"};   Rappel: ${rappel * 100 + "%"}")
-    println(s"Precision: $precision;   Rappel: $rappel")
+    println(s"Fscore == ${F_score * 100 + "%"}")
+    println(s"threshold == $threshold")
   }
 
   def splitIrisData(): Array[String] = {
 
-    val bufferedSource = io.Source.fromFile("/home/aime_bertrand/Documents/my_first_scala_exercices/src/main/scala/ia/tuto/segment_data")
+    val bufferedSource = io.Source.fromFile("/home/aime_bertrand/Documents/my_first_scala_exercices/src/main/scala/ia/tuto/segment_data.arff")
     val tab = (for (line <- bufferedSource.getLines()) yield line).toArray
     val _map = new ArrayBuffer[String]()
     var i = 1

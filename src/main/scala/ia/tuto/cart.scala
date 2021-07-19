@@ -173,15 +173,9 @@ object cart {
       println(s"threshold == $threshold")
       threshold += 0.05
     }
-    /*val tree = cart_model.dot()/*it return graphic representation in Graphviz dot format */
+    val tree = cart_model.dot()/*it return graphic representation in Graphviz dot format */
     println(tree)// here we are printing the decision tree
     println("\n\ncopy and pas te the above on this link to print tree >>>>> http://viz-js.com/\n\n")
-    val iris = read.arff("iris.arff")
-    val canvas = plot(iris, "sepallength", "sepalwidth", "class", '*')
-    canvas.setAxisLabels("sepallength", "sepalwidth")
-    show(canvas)
-*/
-
   }
 
   def splitIrisData(): Array[String] = {
